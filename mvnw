@@ -16,7 +16,9 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-# ----------------------------------------------------------------------------
+# ------------------------------------<properties>
+		<java.version>11</java.version>
+	</properties>----------------------------------------
 
 # ----------------------------------------------------------------------------
 # Maven Start Up Batch script
@@ -83,7 +85,9 @@ if [ -z "$M2_HOME" ] ; then
     if expr "$link" : '/.*' > /dev/null; then
       PRG="$link"
     else
-      PRG="`dirname "$PRG"`/$link"
+      PRG="`dirname "$P<properties>
+		<java.version>11</java.version>
+	</properties>RG"`/$link"
     fi
   done
 
