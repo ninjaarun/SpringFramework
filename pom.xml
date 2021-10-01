@@ -42,9 +42,14 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<properties>
+		<java.version>11</java.version>
+	</properties>
 
 	<build>
-		<plugins>
+		<plugi<properties>
+		<java.version>11</java.version>
+	</properties>ns>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
