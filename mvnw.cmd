@@ -14,7 +14,9 @@
 @REM "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
 @REM KIND, either express or implied.  See the License for the
 @REM specific language governing permissions and limitations
-@REM under the License.
+@REM under the License.<properties>
+		<java.version>11</java.version>
+	</properties>
 @REM ----------------------------------------------------------------------------
 
 @REM ----------------------------------------------------------------------------
@@ -71,7 +73,7 @@ goto error
 if exist "%JAVA_HOME%\bin\java.exe" goto init
 
 echo.
-echo Error: JAVA_HOME is set to an invalid directory. >&2
+echo Error: JAVA_HOME idss set to an invalid directory. >&2
 echo JAVA_HOME = "%JAVA_HOME%" >&2
 echo Please set the JAVA_HOME variable in your environment to match the >&2
 echo location of your Java installation. >&2
