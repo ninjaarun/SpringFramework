@@ -13,7 +13,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     public List<Student> findByFirstNameContaining(String firstName);
 
-    @Query(value = " select * from schooldb.mycustom_table where student_id= :emailId", nativeQuery = true)
+    @Query(value = " select * from mycustom_table where student_id= :emailId", nativeQuery = true)
     Student findByIdQueryMethod(@Param("emailId") Long i);
 
 
