@@ -3,12 +3,22 @@ package com.ninjaarun.my.spring.jpa.tutorial.repository;
 import com.ninjaarun.my.spring.jpa.tutorial.entity.Guardian;
 import com.ninjaarun.my.spring.jpa.tutorial.entity.Student;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
 
-@SpringBootTest
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.NONE;
+
+@ExtendWith(SpringExtension.class)
+@DataJpaTest
+@AutoConfigureTestDatabase(replace = NONE)
 class StudentRepositoryTest {
 
     @Autowired
@@ -52,17 +62,21 @@ class StudentRepositoryTest {
                 .build();
 
         studentRepository.save(s);
+
+        List<Student> results = studentRepository.findByFirstNameContaining("Neetu");
+        assertFalse(results.isEmpty());
     }
 
     @Test
     public void findByFirstName()
     {
-        System.out.println(studentRepository.findByFirstNameContaining("arun"));
+        assertTrue(studentRepository.findByFirstNameContaining("arun").isEmpty());
     }
 
     @Test
     public void findByIdQueryMethod()
     {
-        System.out.println(studentRepository.findByIdQueryMethod(2L));
+        Student result = studentRepository.findByIdQueryMethod(2L);
+        assertNull(result);
     }
 }
